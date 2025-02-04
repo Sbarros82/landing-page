@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBS Automações - IA & Tecnologia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #141414;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
+            padding: 50px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header img {
+            max-width: 300px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding: 50px 0;
+        }
+        .section {
+            padding: 50px 20px;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .service-card {
+            background: linear-gradient(135deg, #E50914, #A50610);
+            padding: 20px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+            width: 22%;
+            min-width: 200px;
+        }
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+        .service-card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .service-card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .testimonials {
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+            max-width: 600px;
+            margin: auto;
+        }
+        .testimonial-carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .testimonial {
+            min-width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .form-section {
+            margin-top: 50px;
+        }
+        .form-section input, .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        .whatsapp-btn {
+            background: #E50914;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+        .footer a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://via.placeholder.com/300x100" alt="Logo SBS Automações">
+    </div>
+    
+    <div class="container">
+        <div class="section">
+            <h1>Automação Inteligente para sua empresa</h1>
+            <p>Criamos soluções com IA e Tecnologia para diversos setores.</p>
+        </div>
+        
+        <div class="services">
+            <div class="service-card">
+                <i class="fas fa-user-md"></i>
+                <h2>Clínicas Médicas & Odontológicas</h2>
+                <p>Agendamentos automáticos, chatbots e prontuários digitais inteligentes.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-plane"></i>
+                <h2>Agências de Viagens</h2>
+                <p>Automatização de reservas, gestão de clientes e integração com APIs de turismo.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h2>Educação</h2>
+                <p>Plataformas EAD, chatbots educacionais e automação de processos acadêmicos.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-laptop-code"></i>
+                <h2>Landing Pages Personalizadas</h2>
+                <p>Criação de páginas otimizadas para conversão, com integração com WhatsApp e IA.</p>
+            </div>
+        </div>
+        
+        <div class="testimonials">
+            <h2>O que nossos clientes dizem</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial">"Serviço excelente, agilizou todo o processo na minha clínica!" - João Silva</div>
+                <div class="testimonial">"Ótima automação para minha agência, recomendo!" - Maria Oliveira</div>
+                <div class="testimonial">"Muito eficiente, trouxe mais produtividade ao nosso time!" - Carlos Santos</div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h2>Tem dúvidas? Entre em contato!</h2>
+           <form id="leadForm">
+    <input type="text" name="nome" placeholder="Seu Nome" required>
+    <input type="email" name="email" placeholder="Seu E-mail" required>
+    <textarea name="mensagem" placeholder="Sua Mensagem" required></textarea>
+    <button type="submit" class="whatsapp-btn">Enviar</button>
+</form>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    let formData = new FormData(this);
+    let jsonData = {};
+    formData.forEach((value, key) => { jsonData[key] = value });
+
+    fetch("https://script.google.com/macros/s/AKfycbw8baWU5C68KjlXbLEgieaj7Q3F2NKOS5KyCvhOPtqJfhG_e69m9NetN8kcmlOEbXJL0g/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(jsonData)
+    }).then(() => alert("Mensagem enviada com sucesso!"));
+});
+</script>
+
+        
+        <a href="https://wa.me/5582994240999" class="whatsapp-btn" target="_blank">Fale Conosco no WhatsApp</a>
+    </div>
+    
+    <div class="footer">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+</body>
+</html>
